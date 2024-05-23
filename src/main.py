@@ -12,7 +12,7 @@ BACKGROUND_COLOR = '#DDDDDD'
 CANVAS_BG_COLOR = 'white'
 PEN_COLOR = 'black'
 FONT = ('Arial', 100)
-TITLE = "Number analyser"
+TITLE = "Handwritten digits classifier"
 # Assume these are available from your ML modules
 from multicouche import *
 from convolution import *
@@ -49,7 +49,7 @@ class App:
         self.canvas_display = tk.Canvas(self.frame_right, bg=CANVAS_BG_COLOR, width=CANVAS_SIZE, height=CANVAS_SIZE)
         self.canvas_display.pack()
 
-        self.save_button = ttk.Button(self.frame_button, text="IA Drawing", command=self.evaluate_drawing)
+        self.save_button = ttk.Button(self.frame_button, text="Predict", command=self.evaluate_drawing)
         self.save_button.pack(pady=10)
 
         self.clear_button = ttk.Button(self.frame_button, text="Clear Drawing", command=self.clear_drawing)
@@ -76,10 +76,6 @@ class App:
         
         # Invert image (suits MNIST better)
         self.image1 = ImageOps.invert(self.image1.convert('RGB'))
-
-        file_path = "saved_drawing.png"
-        self.image1.save(file_path)
-
         if self.combo.get() == "multicouche":
             res = multicouche(self.image1)
         elif self.combo.get() == "multicouche convolutionnelle":
