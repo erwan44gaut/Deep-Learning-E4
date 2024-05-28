@@ -31,9 +31,9 @@ class App:
         self.root.configure(background=BACKGROUND_COLOR)
 
     def create_widgets(self):
-        self.combo = ttk.Combobox(self.root, values=["multicouche", "multicouche convolutionnelle"], width=30)
+        self.combo = ttk.Combobox(self.root, values=["Multilayer", "Convolutional multilayer"], width=30)
         self.combo.pack(pady=10)
-        self.combo.set("multicouche")
+        self.combo.set("Multilayer")
 
         self.frame_left = tk.Frame(self.root, width=CANVAS_SIZE, height=CANVAS_SIZE, bg=BACKGROUND_COLOR)
         self.frame_right = tk.Frame(self.root, width=CANVAS_SIZE, height=CANVAS_SIZE, bg=BACKGROUND_COLOR)
@@ -75,13 +75,12 @@ class App:
         res = "Select a model."
         
         # Invert image (suits MNIST better)
-        self.image1 = ImageOps.invert(self.image1.convert('RGB'))
-        if self.combo.get() == "multicouche":
-            res = multicouche(self.image1)
-        elif self.combo.get() == "multicouche convolutionnelle":
-            res = convolution(self.image1)
+        if self.combo.get() == "Multilayer":
+            res = multicouche(ImageOps.invert(self.image1.convert('RGB')))
+        elif self.combo.get() == "Convolutional multilayer":
+            res = convolution(ImageOps.invert(self.image1.convert('RGB')))
         else:
-            res = multicouche(self.image1)
+            res = multicouche(ImageOps.invert(self.image1.convert('RGB')))
 
         self.display_text(res)
 
