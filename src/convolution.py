@@ -16,4 +16,4 @@ def convolution(image):
     # Predict
     predictions = model.predict(image)
     prediction = np.argmax(predictions, axis=1)
-    return str(prediction[0])
+    return str(prediction[0]), predictions[0]
