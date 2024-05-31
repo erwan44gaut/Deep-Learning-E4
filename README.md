@@ -1,0 +1,1 @@
+To run the project, install the requirements and run "src/main.py"

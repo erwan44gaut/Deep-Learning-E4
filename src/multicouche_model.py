@@ -117,25 +117,25 @@ plt.legend()
 plt.show()
 
 # Visualisation de l'historique de l'entraînement basé sur le temps
-cumulative_times = np.cumsum(time_callback.times)
+# cumulative_times = np.cumsum(time_callback.times)
 
-# Précision basée sur le temps
-plt.figure(figsize=(12, 4))
-plt.subplot(1, 2, 1)
-plt.plot(cumulative_times, history.history['accuracy'], label='Training')
-plt.plot(cumulative_times, history.history['val_accuracy'], label='Validation')
-plt.title('Accuracy over Time')
-plt.xlabel('Time (seconds)')
-plt.ylabel('Accuracy')
-plt.legend()
+# # Précision basée sur le temps
+# plt.figure(figsize=(12, 4))
+# plt.subplot(1, 2, 1)
+# plt.plot(cumulative_times, history.history['accuracy'], label='Training')
+# plt.plot(cumulative_times, history.history['val_accuracy'], label='Validation')
+# plt.title('Accuracy over Time')
+# plt.xlabel('Time (seconds)')
+# plt.ylabel('Accuracy')
+# plt.legend()
 
-# Perte basée sur le temps
-plt.subplot(1, 2, 2)
-plt.plot(cumulative_times, history.history['loss'], label='Training')
-plt.plot(cumulative_times, history.history['val_loss'], label='Validation')
-plt.title('Loss over Time')
-plt.xlabel('Time (seconds)')
-plt.ylabel('Loss')
-plt.legend()
+# # Perte basée sur le temps
+# plt.subplot(1, 2, 2)
+# plt.plot(cumulative_times, history.history['loss'], label='Training')
+# plt.plot(cumulative_times, history.history['val_loss'], label='Validation')
+# plt.title('Loss over Time')
+# plt.xlabel('Time (seconds)')
+# plt.ylabel('Loss')
+# plt.legend()
 
-plt.show()
+# plt.show()

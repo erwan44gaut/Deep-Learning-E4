@@ -6,12 +6,12 @@ def convolution(image):
     model = load_model("./model_cnn.keras")
 
     # Load and preprocess the image
-    image = image.resize((28, 28))  # Resize the image to 28x28
-    image = image.convert('L')  # Convert image to grayscale
+    image = image.resize((28, 28))
+    image = image.convert('L')
     image = np.array(image)
-    image = image.astype("float32") / 255  # Normalize image
-    image = np.expand_dims(image, axis=-1)  # Add channel dimension
-    image = np.expand_dims(image, axis=0)  # Add batch dimension
+    image = image.astype("float32") / 255
+    image = np.expand_dims(image, axis=-1)
+    image = np.expand_dims(image, axis=0)
 
     # Predict
     predictions = model.predict(image)
